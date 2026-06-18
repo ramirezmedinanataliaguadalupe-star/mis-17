@@ -1,0 +1,401 @@
+
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Invitación Floral</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:20px;
+
+overflow:hidden;
+
+font-family:Arial;
+
+background:
+linear-gradient(
+135deg,
+#fff6f8,
+#ffe5ef
+);
+
+}
+
+.card{
+
+width:370px;
+
+background:white;
+
+padding:40px;
+
+border-radius:35px;
+
+text-align:center;
+
+box-shadow:
+0 30px 70px rgba(0,0,0,.12);
+
+position:relative;
+
+z-index:5;
+
+}
+
+.decoracion{
+
+font-size:26px;
+
+margin-bottom:10px;
+
+}
+
+h1{
+
+font-size:42px;
+
+color:#d26f9d;
+
+}
+
+.sub{
+
+color:#777;
+
+margin:15px 0 25px;
+
+}
+
+.info{
+
+line-height:2;
+
+color:#555;
+
+font-size:18px;
+
+}
+
+#contador{
+
+margin-top:25px;
+
+background:#fff4fa;
+
+padding:18px;
+
+border-radius:22px;
+
+font-size:21px;
+
+color:#d26f9d;
+
+font-weight:bold;
+
+line-height:1.7;
+
+}
+
+.btn{
+
+display:block;
+
+margin-top:15px;
+
+padding:15px;
+
+border-radius:35px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.maps{
+
+border:2px solid #d26f9d;
+
+color:#d26f9d;
+
+}
+
+.whatsapp{
+
+background:#d26f9d;
+
+color:white;
+
+}
+
+.btn:hover{
+
+transform:scale(1.04);
+
+}
+
+.frase{
+
+margin-top:22px;
+
+font-style:italic;
+
+color:#999;
+
+}
+
+.flor{
+
+position:absolute;
+
+font-size:24px;
+
+animation:caer linear infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes caer{
+
+from{
+
+transform:
+translateY(-100vh);
+
+}
+
+to{
+
+transform:
+translateY(110vh);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="decoracion">
+🌷 🌸 🌷
+</div>
+
+<h1>Mi Cumpleaños</h1>
+
+<p class="sub">
+Te invito a compartir este día especial ✨
+</p>
+
+<div class="info">
+
+📅 27 de junio de 2026
+
+<br>
+
+🕑 2:00 PM
+
+<br>
+
+📍 ¡Nos vemos ahí!
+
+</div>
+
+<div id="contador">
+Cargando cuenta regresiva...
+</div>
+
+<a
+class="btn maps"
+href="https://maps.app.goo.gl/PmHPGYareohfQJ9HA?g_st=aw"
+target="_blank">
+
+Ver ubicación 📍
+
+</a>
+
+<a
+class="btn whatsapp"
+href="https://wa.me/524493839685?text=Hola%20✨%20confirmo%20mi%20asistencia"
+target="_blank">
+
+Confirmar asistencia 💌
+
+</a>
+
+<div class="frase">
+“Tu presencia hará este día aún más especial”
+</div>
+
+</div>
+
+<script>
+
+function actualizarCuenta(){
+
+const evento=
+new Date(
+"June 27, 2026 14:00:00"
+);
+
+const ahora=
+new Date();
+
+const dif=
+evento-ahora;
+
+if(dif<=0){
+
+document
+.getElementById(
+"contador"
+)
+.innerHTML=
+
+"🌷 ¡Ya comenzó la fiesta! ✨";
+
+return;
+
+}
+
+const dias=
+Math.floor(
+dif/
+86400000
+);
+
+const horas=
+Math.floor(
+(dif%
+86400000)
+/
+3600000
+);
+
+const minutos=
+Math.floor(
+(dif%
+3600000)
+/
+60000
+);
+
+const segundos=
+Math.floor(
+(dif%
+60000)
+/
+1000
+);
+
+document
+.getElementById(
+"contador"
+)
+.innerHTML=
+
+`
+⏳ Faltan
+
+<br><br>
+
+${dias} días
+
+${horas} h
+
+${minutos} min
+
+${segundos} s
+
+`;
+
+}
+
+setInterval(
+actualizarCuenta,
+1000
+);
+
+actualizarCuenta();
+
+function crearFlor(){
+
+let flor=
+document
+.createElement(
+"div"
+);
+
+flor.className=
+"flor";
+
+let flores=
+["🌷","🌸","🌼","💮"];
+
+flor.innerHTML=
+flores[
+Math.floor(
+Math.random()*4
+)];
+
+flor.style.left=
+Math.random()*100+
+"vw";
+
+flor.style.animationDuration=
+(4+
+Math.random()*5)
++"s";
+
+document
+.body
+.appendChild(
+flor
+);
+
+setTimeout(()=>{
+
+flor.remove();
+
+},9000);
+
+}
+
+setInterval(
+crearFlor,
+350
+);
+
+</script>
+
+</body>
+
+</html>
+
+Se va a ver romántica, moderna y con movimiento 🌸✨
